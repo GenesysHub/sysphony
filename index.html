@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYSPhONY — Distributed Neural Network for AI Agents</title>
+    <title>SYSPhONY · Distributed neural fabric for autonomous agents</title>
+    <meta name="description" content="SYSPhONY transforms AI agents into persistent, autonomous entities with memory, tool federation, and horizontal scaling — a living cognitive system.">
     <style>
         :root {
             --bg: #0a0a0a;
@@ -11,6 +12,7 @@
             --text: #bbbbbb;
             --text-muted: #777777;
             --text-bright: #f0f0f0;
+            --accent: #2c2c2c;
         }
 
         * {
@@ -26,7 +28,7 @@
             line-height: 1.6;
             min-height: 100vh;
             padding: 4rem 2rem;
-            max-width: 880px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -65,6 +67,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .pulse-dot {
@@ -112,7 +115,6 @@
             background: rgba(255,255,255,0.01);
             border-radius: 0 6px 6px 0;
             font-size: 0.95rem;
-            color: var(--text);
         }
 
         .word {
@@ -148,13 +150,6 @@
             margin: 0.8rem 0 0 1.5rem;
         }
 
-        .definition-block .examples p {
-            margin-left: 1rem;
-            color: #999;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
         .section-heading {
             font-size: 1rem;
             text-transform: uppercase;
@@ -177,7 +172,6 @@
         .about-text {
             color: var(--text);
             margin-bottom: 1.2rem;
-            max-width: 90%;
             font-weight: 300;
         }
 
@@ -186,63 +180,156 @@
             font-weight: 500;
         }
 
-        .phases-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 0.8rem;
+        .pixel-dots {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: 
+                radial-gradient(circle at 2px 2px, #e0e0e0 1.2px, transparent 1.2px),
+                radial-gradient(circle at 10px 2px, #e0e0e0 1.2px, transparent 1.2px),
+                radial-gradient(circle at 2px 10px, #e0e0e0 1.2px, transparent 1.2px),
+                radial-gradient(circle at 10px 10px, #e0e0e0 1.2px, transparent 1.2px);
+            background-size: 18px 18px;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            margin-right: 6px;
+            vertical-align: middle;
         }
 
-        .phase {
+        .card {
             border: 1px solid #1a1a1a;
-            border-radius: 8px;
-            padding: 1.2rem 1.4rem;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
             background: rgba(255,255,255,0.008);
-            transition: border-color 0.2s, background 0.2s;
+            transition: border-color 0.2s;
         }
 
-        .phase:hover {
-            border-color: #333;
-            background: rgba(255,255,255,0.015);
+        .card:hover {
+            border-color: #2c2c2c;
         }
 
-        .phase-header {
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .card a {
+            color: #ccc;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+        .card a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .phase-stepper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .phase-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 1rem 0.5rem;
+        }
+
+        .phase-left {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1rem;
+            flex: 2;
         }
 
         .phase-name {
             font-weight: 600;
             color: #e0e0e0;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
         }
 
         .phase-badge {
             font-size: 0.65rem;
-            padding: 0.15rem 0.5rem;
-            border: 1px solid #2a2a2a;
-            color: #888;
-            border-radius: 4px;
+            padding: 0.2rem 0.7rem;
+            border: 1px solid #3a3a3a;
+            color: #aaa;
+            border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background: rgba(255,255,255,0.02);
+            white-space: nowrap;
         }
 
         .phase-desc {
             color: #aaa;
             font-size: 0.85rem;
             line-height: 1.5;
-            font-weight: 300;
+            flex: 3;
+            text-align: left;
+            margin-top: 0.25rem;
         }
 
-        .phase-desc .accent {
-            color: #dddddd;
-            font-weight: 500;
+        @media (max-width: 700px) {
+            .phase-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .phase-left {
+                width: 100%;
+            }
+            .phase-desc {
+                width: 100%;
+            }
+            body {
+                padding: 2rem 1.5rem;
+            }
+            .title {
+                font-size: 2rem;
+            }
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
-        /* loading bar */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+        .tech-badge {
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.03);
+            border: 0.5px solid #2a2a2a;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            color: #aaa;
+        }
+        .tech-badge a {
+            color: #aaa;
+            text-decoration: none;
+        }
+        .tech-badge a:hover {
+            color: white;
+        }
+
         .loading-wrap {
             margin-top: 3rem;
         }
@@ -286,143 +373,178 @@
             font-size: 0.75rem;
             border-top: 1px solid #1a1a1a;
             padding-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-
-        @media (max-width: 650px) {
-            body {
-                padding: 2rem 1.5rem;
-            }
-            .phases-grid {
-                grid-template-columns: 1fr;
-            }
-            .title {
-                font-size: 2rem;
-            }
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .footer a {
+            color: #444;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <div>
             <div class="title">SYSPhONY</div>
             <div class="subtitle">Distributed Artificial Neural Network for AI Agents</div>
             <div class="status-line">
-                <span class="pulse-dot"></span> Work in progress · Boot sequence v0.6.10
+                <span class="pulse-dot"></span> 
+                MCP aggregator · Model-agnostic · Cluster fabric
             </div>
         </div>
         <a href="https://github.com/GenesysHub" class="github-link" target="_blank" rel="noopener">github/GenesysHub ↗</a>
     </div>
 
-    <!-- Definition -->
     <div class="definition-block">
         <div class="word">sysphony</div>
         <div class="pronunciation">/ˈsɪs.fə.ni/</div>
         <div class="pos">noun</div>
-
         <span class="label">Definition</span>
         <ol>
             <li>The coordinated, harmonious integration of multiple systems, components, or processes functioning as a unified whole.</li>
             <li>(Figurative) A complex and elegant arrangement of interconnected parts operating seamlessly, akin to a symphony orchestra.</li>
         </ol>
-
-        <span class="label">Etymology</span>
-        <p style="margin-left:1rem; color:#aaa; font-size:0.9rem;">Blend of <em>system</em> and <em>symphony</em>. The prefix <strong>sys-</strong> from Greek <em>systēma</em> (σύστημα) "organized whole"; the suffix echoes <em>symphony</em> from Greek <em>symphōnia</em> (συμφωνία) "concord of sound". Together, the artful orchestration of diverse systems working in structured harmony.</p>
-
-        <span class="label">Usage notes</span>
-        <p style="margin-left:1rem; color:#aaa; font-size:0.9rem;">Common in systems engineering, software architecture, organizational theory, and automation. Conveys functional integration with elegance and intentional design.</p>
-
-        <span class="label">Examples</span>
-        <div class="examples">
-            <p>▪ The cloud infrastructure is a sysphony of microservices, seamlessly communicating across regions.</p>
-            <p>▪ Her leadership turned a chaotic startup into a sysphony of innovation and execution.</p>
-            <p>▪ The interface isn’t just user-friendly—it’s a sysphony of thoughtful design elements.</p>
-            <p>▪ AI and human judgment form a sysphony in this real-time decision-making system.</p>
-        </div>
+        <span class="label">Sysphony platform — modern definition</span>
+        <p style="margin-left:1rem; color:#ddd; font-size:0.9rem;">A living cognitive architecture that elevates AI agents from stateless responders to autonomous, persistent entities with cross‑session memory, universal tool federation, and real‑time event mesh. <strong>Model-agnostic</strong> (<a href="https://openrouter.ai" target="_blank" rel="noopener" style="color:#ccc;">OpenRouter</a>, <a href="https://ollama.com" target="_blank" rel="noopener" style="color:#ccc;">Ollama</a>, OpenAI, Anthropic, any OpenAI-compatible endpoint) and <strong>database-flexible</strong> (SQLite, MongoDB, PostgreSQL).</p>
     </div>
 
     <hr>
 
-    <!-- About -->
-    <div class="section-heading">About</div>
+    <div class="section-heading">About · The cognitive fabric</div>
     <p class="about-text">
-        Sysphony transforms AI agents from <span class="highlight">stateless text generators</span> into 
-        <span class="highlight">persistent, autonomous entities</span> with memory, skills, workflows, 
-        and a distributed neural network that coordinates across any AI client, any session, any time.
+        <span class="highlight">Sysphony</span> breaks the chatbot paradigm. It provides a <strong>distributed neural network</strong> where AI agents possess long‑term memory, tool-based agency, collaborative workflows, and a real‑time execution layer — across any client, any model, any session.
     </p>
     <p class="about-text">
-        Not a chatbot. Not a copilot. A <span class="highlight">living cognitive system</span> that grows, remembers, reasons, and evolves.
+        At its core, Sysphony is an <strong><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener" style="color:#ddd;">Model Context Protocol (MCP)</a> aggregator</strong> and <strong>horizontal execution mesh</strong>. You can plug any MCP server — built‑in or external — to construct custom agent workflows. The platform federates tools (memory, file, browser automation, search, arithmetic, agent invocation, etc.) and lets you compose them visually or via code. <strong>Works with any MCP client</strong>: <a href="https://claude.ai/download" target="_blank" rel="noopener" style="color:#ccc;">Claude Desktop</a>, <a href="https://cursor.sh" target="_blank" rel="noopener" style="color:#ccc;">Cursor</a>, <a href="https://github.com/features/copilot" target="_blank" rel="noopener" style="color:#ccc;">Codex</a>, <a href="https://kiro.dev" target="_blank" rel="noopener" style="color:#ccc;">Kiro</a>, and any custom client.
+    </p>
+    <p class="about-text">
+        Under the hood: an <a href="https://expressjs.com" target="_blank" rel="noopener" style="color:#ccc;">Express</a> + WebSocket monolith that scales via role separation (<strong>state server</strong> for persistence and real‑time events, <strong>stateless compute nodes</strong> for agent/tool execution). Supports <strong>SQLite, MongoDB, or PostgreSQL</strong> — choose your persistence layer. From solo mode (single process) to full cluster on <a href="https://aws.amazon.com" target="_blank" rel="noopener" style="color:#ccc;">AWS</a>, the same <a href="https://docker.com" target="_blank" rel="noopener" style="color:#ccc;">Docker</a> image runs everywhere.
     </p>
 
     <hr>
 
-    <!-- Operational Plan -->
-    <div class="section-heading">Operational Plan</div>
-    <div class="phases-grid">
-        <div class="phase">
-            <div class="phase-header">
-                <span class="phase-name">Phase 0 — Foundation</span>
-                <span class="phase-badge">In Progress</span>
+    <div class="section-heading">Architectural evolution · Operational phases</div>
+    <div class="phase-stepper">
+        <div class="phase-item">
+            <div class="phase-left">
+                <span class="phase-name">Foundation & extraction</span>
+                <span class="phase-badge">Active</span>
             </div>
             <div class="phase-desc">
-                <span class="accent">Core extraction & hardened infrastructure.</span> 
-                Separating mind from body, static frontend shell, EC2 backbone.
+                Cluster backbone, MCP server, core workflow engine. State/compute split, HMAC registration, round‑robin routing, WebSocket event relay.
             </div>
         </div>
-        <div class="phase">
-            <div class="phase-header">
-                <span class="phase-name">Phase 1 — MCP Hub</span>
-                <span class="phase-badge">Planned</span>
+        <div class="phase-item">
+            <div class="phase-left">
+                <span class="phase-name">MCP Hub & tool federation</span>
+                <span class="phase-badge">In progress</span>
             </div>
             <div class="phase-desc">
-                <span class="accent">Universal tool federation.</span> Workflow designer, agent-composed super-tools, first public release.
+                Universal MCP aggregator. Register any external MCP server, compose super‑tools, workflow designer with MCP nodes. Public registry and agent‑driven discovery.
             </div>
         </div>
-        <div class="phase">
-            <div class="phase-header">
-                <span class="phase-name">Phase 2 — Genesys Memory</span>
+        <div class="phase-item">
+            <div class="phase-left">
+                <span class="phase-name">Genesys semantic memory</span>
                 <span class="phase-badge">Concept</span>
             </div>
             <div class="phase-desc">
-                <span class="accent">Semantic memory & rule engine.</span> Embedding vectors, hybrid search, cross‑session learning.
+                Cross‑session memory & rule engine. Embedding vectors, hybrid search, episodic recall. Agents remember conversations, decisions, and learn across invocations.
             </div>
         </div>
-        <div class="phase">
-            <div class="phase-header">
-                <span class="phase-name">Phase 3 — Generative UI</span>
+        <div class="phase-item">
+            <div class="phase-left">
+                <span class="phase-name">Generative UI · visual cortex</span>
                 <span class="phase-badge">Concept</span>
             </div>
             <div class="phase-desc">
-                <span class="accent">Agents render thoughts directly.</span> Data‑driven components, dynamic visual cortex.
+                Agents render their own interface. Dynamic, data‑driven components. Agent‑controlled dashboards and real‑time layout mutation.
             </div>
         </div>
-        <div class="phase" style="grid-column: span 2;">
-            <div class="phase-header">
-                <span class="phase-name">Phase 4 — Synapse Network</span>
+        <div class="phase-item">
+            <div class="phase-left">
+                <span class="phase-name">Synapse network · hive mind</span>
                 <span class="phase-badge">Concept</span>
             </div>
             <div class="phase-desc">
-                <span class="accent">The hive mind awakens.</span> Persistent living agents, context injection, fractal orchestration, real‑time 3D brain.
+                Multi‑agent mesh with async message passing. Fractal orchestration, emergent collaboration, 3D brain visualization, cross‑agent learning.
             </div>
         </div>
     </div>
 
-    <!-- Loading / Wait -->
+    <div style="margin: 1.8rem 0 1rem; padding: 1rem; border-left: 2px solid #2a2a2a;">
+        <p style="font-size: 0.85rem;"><span class="pixel-dots"></span> <strong>Scaling model</strong> — State server (persistence, WebSocket hub) + stateless compute nodes (auto‑register via HMAC). Compute nodes execute workflows and agent calls, events relay to state → broadcast to frontends. Local <code>solo</code> mode for development, production cluster scales horizontally on <a href="https://aws.amazon.com/ecs/" target="_blank" rel="noopener" style="color:#ccc;">AWS ECS Fargate</a>.</p>
+    </div>
+
+    <hr>
+
+    <div class="section-heading">Core capabilities · MCP aggregator in action</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem;">
+        <div class="card">
+            <h3><span class="pixel-dots"></span> MCP federation</h3>
+            <p>Built‑in tools: memory, workflows, filesystem, browser automation (<a href="https://stagehand.dev" target="_blank" rel="noopener">Stagehand</a>), fetch, search, agent invocation. <strong>Add any external MCP server</strong> — universal aggregator. Learn more at <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP official</a>.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Model‑agnostic AI</h3>
+            <p>Use <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a>, <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>, <a href="https://openai.com" target="_blank" rel="noopener">OpenAI</a>, <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a>, <a href="https://groq.com" target="_blank" rel="noopener">Groq</a>, local models — any OpenAI‑compatible endpoint. No vendor lock‑in.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Multi‑database</h3>
+            <p>Support for <strong>SQLite</strong> (default), <strong><a href="https://www.mongodb.com" target="_blank" rel="noopener">MongoDB</a></strong>, and <strong><a href="https://www.postgresql.org" target="_blank" rel="noopener">PostgreSQL</a></strong>. Choose your persistence backend.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Workflow designer</h3>
+            <p>Visual node graph with MCP steps, conditional branches, parallel execution. Stream results, parameter resolution. Built on <a href="https://reactflow.dev" target="_blank" rel="noopener">React Flow</a>.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Persistent agents</h3>
+            <p>Autonomous entities with long‑term memory, skill sets, and message‑based collaboration. Cross‑session recall via <strong>native vector embeddings</strong> stored directly in your SQLite, MongoDB, or PostgreSQL database.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Generative UI · agent‑injected layouts</h3>
+            <p>Agents can <strong>discover available UI components</strong>, <strong>render new components</strong> on the fly, and <strong>mutate page layouts in real time</strong>. Dynamic, data‑driven interfaces controlled entirely by agent logic.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Real‑time event mesh</h3>
+            <p>WebSocket channels: execution_events, tool_activity, agent messages, app_state. Compute → state relay ensures live UI updates and agent‑frontend sync.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> MCP client‑agnostic</h3>
+            <p>Works with <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude Desktop</a>, <a href="https://cursor.sh" target="_blank" rel="noopener">Cursor</a>, <a href="https://github.com/features/copilot" target="_blank" rel="noopener">Codex</a>, <a href="https://kiro.dev" target="_blank" rel="noopener">Kiro</a>, any MCP client. Standard Model Context Protocol.</p>
+        </div>
+        <div class="card">
+            <h3><span class="pixel-dots"></span> Cluster ready</h3>
+            <p>Same Docker image, role env (state / compute / solo). HMAC peer registration, heartbeat, execution routing. Deploy on <a href="https://aws.amazon.com/ec2/" target="_blank" rel="noopener">EC2</a> + <a href="https://aws.amazon.com/ecs/" target="_blank" rel="noopener">ECS Fargate</a>.</p>
+        </div>
+    </div>
+
+    <div class="badge-list">
+        <span class="tech-badge"><a href="https://bun.sh" target="_blank" rel="noopener">Bun</a></span>
+        <span class="tech-badge"><a href="https://expressjs.com" target="_blank" rel="noopener">Express</a></span>
+        <span class="tech-badge"><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a></span>
+        <span class="tech-badge"><a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> / <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a></span>
+        <span class="tech-badge">SQLite / MongoDB / PostgreSQL</span>
+        <span class="tech-badge"><a href="https://nextjs.org" target="_blank" rel="noopener">Next.js</a> static export</span>
+        <span class="tech-badge"><a href="https://legendstate.com" target="_blank" rel="noopener">Legend State</a></span>
+        <span class="tech-badge">WebSocket</span>
+        <span class="tech-badge"><a href="https://aws.amazon.com" target="_blank" rel="noopener">AWS</a> (EC2 + ECS Fargate)</span>
+        <span class="tech-badge">HMAC cluster auth</span>
+        <span class="tech-badge"><a href="https://playwright.dev" target="_blank" rel="noopener">Playwright</a>/Stagehand</span>
+    </div>
+
     <div class="loading-wrap">
         <div class="loading-bar">
             <div class="loading-bar-inner"></div>
         </div>
-        <div class="pending-text">transmission pending · full deployment in progress</div>
+        <div class="pending-text">distributed neural network · bootstrapping synapse fabric</div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-        <span>// SYSPHONY //</span>
-        <span>EST. 2026</span>
+        <span>// SYSPhONY :: <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP aggregator</a> · <a href="https://openrouter.ai" target="_blank" rel="noopener">model‑agnostic</a> · horizontal mind //</span>
+        <span>EST. 2026 — <a href="https://apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a></span>
     </div>
 </body>
 </html>

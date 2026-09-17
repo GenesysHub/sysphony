@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "rev": "e1f1dd8cdedba2a0a6b8bc",
+    "title": "SYSPhONY · Tessuto neurale tool-centrico per agenti autonomi",
+    "description": "SYSPhONY è una piattaforma cognitiva tool-centrica: un aggregatore MCP in cui i tools alimentano tutto, dalla UI generativa ai workflow dinamici, dalla knowledge e dai database alla ricerca semantica e agli agenti AI persistenti. Indipendente dal modello, flessibile sui database, progettata per persone e agenti AI.",
+    "og": {
+      "title": "SYSPhONY · Tessuto neurale tool-centrico per agenti autonomi",
+      "description": "Un aggregatore MCP in cui i tools alimentano tutto: UI generativa, workflow dinamici, knowledge e database, ricerca semantica e agenti persistenti. Un unico endpoint, capacità componibili."
+    },
+    "twitter": {
+      "title": "SYSPhONY · Tessuto neurale tool-centrico per agenti autonomi",
+      "description": "Un aggregatore MCP in cui i tools alimentano tutto: UI generativa, workflow dinamici, knowledge, ricerca semantica e agenti persistenti."
+    }
+  },
+  "header": {
+    "title": "SYSPhONY",
+    "subtitle": "La piattaforma MCP dove ogni capacità è un tool, per persone e agenti AI",
+    "status": "Un solo endpoint per UI, workflow, dati e agenti, con qualsiasi modello",
+    "banner": "Fase di test · uso interno. Sysphony è già usato e testato su progetti interni; presto sarà aperto alla sperimentazione privata e, al termine di tutte le fasi, reso open source.",
+    "github": "github/GenesysHub ↗"
+  },
+  "definition": {
+    "word": "sysphony",
+    "ipa": "/ˈsɪs.fə.ni/",
+    "pos": "sostantivo",
+    "defLabel": "Definizione",
+    "senses": [
+      "L'integrazione coordinata e armoniosa di più sistemi, componenti o processi che funzionano come un tutto unificato.",
+      "(Figurato) Una disposizione complessa ed elegante di parti interconnesse che operano senza soluzione di continuità, come un'orchestra sinfonica."
+    ],
+    "modernLabel": "Piattaforma Sysphony: definizione moderna",
+    "modernHtml": "Un'architettura cognitiva <strong>tool-centrica</strong> costruita attorno a un'unica idea: <strong>tutto è un tool</strong>. Un unico livello <a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">MCP</a> permette a persone e agenti di invocare tools per <strong>generare interfacce</strong>, <strong>comporre workflow</strong>, <strong>interrogare knowledge e database</strong> ed <strong>eseguire ricerca semantica</strong>. <strong>Indipendente dal modello</strong> (<a href=\"https://openrouter.ai\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">OpenRouter</a>, <a href=\"https://ollama.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Ollama</a>, <a href=\"https://openai.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">OpenAI</a>, <a href=\"https://www.anthropic.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Anthropic</a> o qualsiasi endpoint compatibile con l'integrazione) e <strong>flessibile sui database</strong> (SQLite, <a href=\"https://www.mongodb.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">MongoDB</a>, <a href=\"https://www.postgresql.org\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">PostgreSQL</a>)."
+  },
+  "about": {
+    "heading": "Informazioni · Tutto è un tool",
+    "paragraphsHtml": [
+      "<span class=\"highlight\">Sysphony</span> supera il paradigma del chatbot. Al suo centro c'è un <strong>aggregatore <a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener\" style=\"color:#ddd;\">Model Context Protocol (MCP)</a></strong>: collega server MCP e fa sì che <strong>ogni capacità diventi un tool</strong>. I tools non sono un riquadro nel diagramma: sono le <strong>connessioni stesse</strong>, il mezzo attraverso cui il sistema opera. L'UI generativa, un workflow, un database, una knowledge base: ciascuno viene raggiunto come un tool.",
+      "Poiché tutto è un tool, l'<strong>utente può raggiungerli direttamente</strong>: eseguire un workflow, interrogare un database, consultare una knowledge base o guidare l'UI. Gli stessi tools possono svolgere compiti diversi a seconda di come vengono configurati. Nulla è un caso speciale: il sistema cresce in capacità senza dover moltiplicare i paradigmi.",
+      "L'<strong>AI</strong> lavora attraverso un <strong>router agent</strong>: il router analizza il task e seleziona i <strong>sub-agent</strong> più adatti. Ogni sub-agent opera attraverso uno o più <strong>domain</strong>, che forniscono accesso a specifiche risorse, knowledge o tools. <strong>Sub-agent e domain sono entità distinte e componibili</strong>: un domain può essere condiviso da più sub-agent, mentre un sub-agent può utilizzare più domain (<em>AI → router agent → sub-agent → domain → tools</em>). È questa separazione a rendere l'architettura modulare: gli agenti definiscono il comportamento e il contesto operativo, mentre i domain incapsulano capacità e risorse riutilizzabili. Un'azione di un tool può inoltre chiudere il ciclo: un evento <strong>WebSocket</strong> emesso da un tool può <strong>risvegliare l'agent</strong>, consentendo al sistema di reagire autonomamente agli eventi.",
+      "Sotto il cofano: un core <a href=\"https://expressjs.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Express</a> + WebSocket che scala tramite separazione dei ruoli: un <strong>server di stato</strong> per persistenza ed eventi in tempo reale e <strong>nodi di calcolo stateless</strong> per l'esecuzione di tools e agenti. Funziona con client MCP come <a href=\"https://claude.ai/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Claude Desktop</a>, <a href=\"https://cursor.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Cursor</a>, <a href=\"https://developers.openai.com/codex\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Codex</a>, <a href=\"https://kiro.dev\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Kiro</a> e qualsiasi client compatibile. Dalla modalità singola a un cluster completo su <a href=\"https://aws.amazon.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">AWS</a>, la stessa immagine <a href=\"https://www.docker.com\" target=\"_blank\" rel=\"noopener\" style=\"color:#ccc;\">Docker</a> può essere distribuita ovunque."
+    ]
+  },
+  "model": {
+    "heading": "Il modello · Tutto è un tool: gli archi sono i tools",
+    "panelDefault": {
+      "tag": "gli archi sono tools",
+      "title": "I tools sono le connessioni",
+      "descHtml": "Ogni freccia rappresenta un tool. L'<strong>utente</strong> raggiunge direttamente ogni nodo finale; l'<strong>AI</strong> passa attraverso un <strong>router → domini</strong>; e un'azione di un tool (<strong>WebSocket</strong>) può tornare indietro per risvegliare l'agente. Passa il mouse (o tocca) un nodo."
+    },
+    "note": "L'utente usa i tool direttamente; l'AI ci arriva tramite il router e i suoi domini; e un evento WebSocket può risvegliare l'agente, chiudendo il ciclo."
+  },
+  "graph": {
+    "nodes": {
+      "user": {
+        "t": "umano",
+        "n": "Utente",
+        "d": "raggiunge ogni tool",
+        "tag": "umano",
+        "title": "L'utente raggiunge ogni tool direttamente",
+        "desc": "UI, workflow, database, knowledge: sono tutti tools, quindi l'utente può usarli direttamente. Gli archi qui SONO i tools."
+      },
+      "ai": {
+        "t": "AI · agente",
+        "n": "AI",
+        "d": "router → domini",
+        "tag": "AI · agente",
+        "title": "L'AI lavora tramite un router",
+        "desc": "L'agente si connette al proprio router, che raggiunge i domini con cui è configurato. Gli stessi tools disponibili all'utente, orchestrati attraverso esperti specializzati."
+      },
+      "ui": {
+        "t": "tool",
+        "n": "UI",
+        "d": "genera · JSON → widget",
+        "tag": "tool · UI generativa",
+        "title": "L'UI è un tool",
+        "desc": "Generare, rendere e rimodellare l'interfaccia è una chiamata a un tool. L'utente la vede; l'AI può costruirla o modificarla: lo stesso tool per entrambi."
+      },
+      "wf": {
+        "t": "tool",
+        "n": "Workflow",
+        "d": "componi · tools di tools",
+        "tag": "tool · workflow dinamici",
+        "title": "Un workflow è un tool",
+        "desc": "Concatena tools in un grafo di nodi con diramazioni e passi paralleli; l'intero workflow diventa un tool richiamabile con uno schema generato automaticamente."
+      },
+      "db": {
+        "t": "tool",
+        "n": "Database",
+        "d": "archivia · SQLite · Mongo · PostgreSQL",
+        "tag": "tool · database",
+        "title": "Un database è un tool",
+        "desc": "Interroga, leggi e scrivi su SQLite, MongoDB o PostgreSQL, tutto tramite un'unica interfaccia a tools."
+      },
+      "know": {
+        "t": "tool",
+        "n": "Knowledge",
+        "d": "recupera · semantico",
+        "tag": "tool · knowledge e ricerca",
+        "title": "La knowledge è un tool",
+        "desc": "Dataset caricati in knowledge base e indicizzati per testo e significato. Il recupero ibrido, basato su parole chiave e ricerca vettoriale, è esposto come tool e alimenta il RAG."
+      },
+      "d-wf": {
+        "short": "dominio · workflow",
+        "tag": "dominio · workflow",
+        "title": "Dominio su un workflow",
+        "desc": "Un esperto vincolato a un singolo workflow: sa come e quando eseguire quel tool per conto del sub-agent che lo utilizza."
+      },
+      "d-kb": {
+        "short": "dominio · knowledge",
+        "tag": "dominio · knowledge base",
+        "title": "Dominio su una knowledge base",
+        "desc": "Un esperto specializzato su una knowledge base: le sue fonti puntano a quel dataset e al relativo indice semantico. Un dominio combina tools e knowledge per svolgere il proprio compito."
+      },
+      "router": {
+        "short": "Router",
+        "tag": "MoE · router",
+        "title": "Il router raggiunge i domini",
+        "desc": "Il router dell'agente classifica ogni richiesta e la instrada verso il dominio appropriato. Aggiungendo domini, la mixture-of-experts cresce e si adatta al compito."
+      },
+      "ws": {
+        "t": "azione tool · evento",
+        "n": "WebSocket",
+        "d": "innesca un ciclo",
+        "tag": "azione tool · WebSocket",
+        "title": "Un tool può risvegliare l'agente",
+        "desc": "WebSocket è uno dei meccanismi di evento disponibili ai tools: un tool emette un evento WS che torna al sistema e può risvegliare l'AI, chiudendo il ciclo e permettendo al sistema di reagire autonomamente."
+      },
+      "mcps": {
+        "short": "MCP esterni",
+        "tag": "server MCP esterni",
+        "title": "Collega server MCP esterni",
+        "desc": "I workflow possono connettersi anche a server MCP esterni: i tools esposti da questi server entrano nel grafo e diventano componibili con tutto il resto."
+      }
+    }
+  },
+  "capabilities": {
+    "heading": "Capacità principali · Il livello dei tools in azione",
+    "cards": [
+      {
+        "title": "Fondamenta · Federazione MCP",
+        "html": "Tutto parte da un unico <strong>aggregatore MCP</strong>: memory, workflow, browser automation (<a href=\"https://www.stagehand.dev\" target=\"_blank\" rel=\"noopener\">Stagehand</a>), fetch, search e invocazione di agenti sono già tools integrati. Colleghi qualsiasi <strong>server MCP esterno</strong> e le sue capacità entrano nello stesso registro, richiamabili da persone e agenti: un solo punto d'accesso a tutto. Consulta la <a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener\">specifica MCP</a>."
+      },
+      {
+        "title": "Comporre · Workflow e UI generativa",
+        "html": "Se ogni capacità è un tool, la puoi comporre. Concatena i tools in un <strong>workflow</strong> visuale, con diramazioni condizionali e passi paralleli: l'intero grafo diventa a sua volta un <strong>tool richiamabile</strong> con schema generato automaticamente (su <a href=\"https://reactflow.dev\" target=\"_blank\" rel=\"noopener\">React Flow</a>). La stessa logica vale per l'interfaccia: gli agenti scoprono componenti, ne creano di nuovi e rimodellano i layout in tempo reale. <code>JSON in → UI out</code>, senza riprogettare ogni volta."
+      },
+      {
+        "title": "Dati · Knowledge, database e ricerca semantica",
+        "html": "I dati sono il carburante degli agenti, quindi anche loro sono tools. Interroghi <strong>SQLite</strong>, <a href=\"https://www.mongodb.com\" target=\"_blank\" rel=\"noopener\">MongoDB</a> e <a href=\"https://www.postgresql.org\" target=\"_blank\" rel=\"noopener\">PostgreSQL</a> con un'unica interfaccia e carichi i dataset in <strong>domini di knowledge</strong>, indicizzati per full-text e significato. Sopra ci gira un <strong>recupero ibrido keyword + vettoriale</strong>, con gli embedding salvati nel database stesso: è la base del RAG per ogni agente e workflow."
+      },
+      {
+        "title": "Esperti · Domini e agenti MoE-RAG",
+        "html": "Attorno a ogni risorsa (tool, workflow, database o knowledge base) puoi creare un <strong>dominio</strong>: un esperto vincolato a quella risorsa, con fonti, memory e task propri. Un <strong>agente</strong> è poi una <strong>mixture-of-experts</strong>, un router più i domini che lo compongono, e il router instrada ogni richiesta verso l'esperto appropriato. I domini sono componibili: lo stesso dominio serve molti agenti e un agente ne contiene molti. Aggiungi una risorsa, ottieni un dominio, riutilizzalo ovunque, senza duplicazioni."
+      },
+      {
+        "title": "Runtime · Modello-agnostico ed eventi in tempo reale",
+        "html": "L'esecuzione non è legata a nessun provider: <a href=\"https://openrouter.ai\" target=\"_blank\" rel=\"noopener\">OpenRouter</a>, <a href=\"https://ollama.com\" target=\"_blank\" rel=\"noopener\">Ollama</a>, <a href=\"https://openai.com\" target=\"_blank\" rel=\"noopener\">OpenAI</a>, <a href=\"https://www.anthropic.com\" target=\"_blank\" rel=\"noopener\">Anthropic</a>, <a href=\"https://groq.com\" target=\"_blank\" rel=\"noopener\">Groq</a> o modelli locali, purché il runtime supporti quel modello o endpoint. Mentre i tools vengono eseguiti, i <strong>canali WebSocket</strong> trasmettono eventi di esecuzione, attività dei tools, messaggi degli agenti e stato dell'app: il relay calcolo → stato tiene UI e agenti sempre sincronizzati."
+      },
+      {
+        "title": "Deploy · Client-agnostico e pronto per il cluster",
+        "html": "Essendo un server MCP, funziona con <a href=\"https://claude.ai/download\" target=\"_blank\" rel=\"noopener\">Claude Desktop</a>, <a href=\"https://cursor.com\" target=\"_blank\" rel=\"noopener\">Cursor</a>, <a href=\"https://developers.openai.com/codex\" target=\"_blank\" rel=\"noopener\">Codex</a>, <a href=\"https://kiro.dev\" target=\"_blank\" rel=\"noopener\">Kiro</a> e altri client MCP compatibili. La stessa immagine <a href=\"https://www.docker.com\" target=\"_blank\" rel=\"noopener\">Docker</a> va dalla macchina locale a un cluster scalato su <a href=\"https://aws.amazon.com/ecs/fargate/\" target=\"_blank\" rel=\"noopener\">AWS ECS Fargate</a>, con registrazione dei peer tramite HMAC."
+      }
+    ]
+  },
+  "notes": {
+    "heading": "FAQ · perché è costruito così",
+    "intro": "Le domande che mi sono posto costruendo Sysphony e il perché di ogni scelta, senza giri di parole.",
+    "items": [
+      {
+        "title": "Perché tool-centrico, con un'unica interfaccia?",
+        "html": "In anni di programmazione ho visto funzioni perdersi, duplicarsi e sparire nell'etere delle librerie. Gli <strong>MCP</strong> offrono invece un <strong>registro di tools riutilizzabili</strong>, richiamabili nativamente anche dall'AI. Da qui una struttura <strong>multi-MCP</strong>: server MCP dedicati a progetti specifici, con workflow composti da MCP interni ed esterni. Una sorta di inception, dove <strong>i tools creano progetti e altri tools, e poi li eseguono</strong>: senza scrivere codice, ma tramite configurazione. Serviva un sistema uniforme, utilizzabile allo stesso modo da persone e agenti."
+      },
+      {
+        "title": "In che senso i workflow sono tools?",
+        "html": "Comporre tools per creare <strong>«tools complessi»</strong> è la chiave dei sub-MCP: dai a un agente un MCP specifico e ne limiti area d'azione e knowledge. Un workflow non è solo un tool: ha nodi <strong>object</strong> (definiscono lo schema), nodi <strong>agent</strong> (input come context, lateral tools e output tipizzato) e nodi <strong>condition</strong> per diramare l'esecuzione. Gli <strong>edge</strong> collegano valori specifici degli schemi input/output e gestiscono liste, map e foreach sugli array, rendendo semplice l'<strong>esecuzione parallela in batch</strong>. Ogni workflow può avere trigger <strong>cron e WebSocket</strong> e uno <strong>storico per step</strong>: debug e log completi."
+      },
+      {
+        "title": "Perché l'UI dovrebbe essere generativa?",
+        "html": "Internet sta cambiando: i siti tradizionali rischiano di diventare interfacce sempre più rigide rispetto a ciò che gli agenti possono fare. Ciò che conta è <strong>l'informazione e l'azione</strong>, e l'UI dovrebbe essere <strong>generata dai dati</strong> e dagli interessi di chi la usa. Perché dare a tutti lo stesso pannello con mille bottoni? Chi vive dentro Excel può avere un'UI in stile Excel; chi vuole di più può costruire il proprio pannello, con o senza l'aiuto di un agente. E l'UI generativa permette all'agente di <strong>mostrarti i dati</strong>: non più una semplice chat, ma un'interfaccia che l'AI compone e adatta in modo proattivo."
+      },
+      {
+        "title": "Come funzionano knowledge e ricerca semantica?",
+        "html": "Lavorando con molti agenti e molti dati, il problema è recuperare l'<strong>informazione giusta</strong> su argomenti diversi: il <strong>context è il cuore di un agente</strong>, la base della sua continuità e operatività. Poiché tutto passa dal tool <strong>memory</strong> verso il server dei database, ho costruito un modo semplice per creare e gestire nuovi DB, aggiungendo <strong>chunking e vettorializzazione</strong> a quelli più importanti, così i tools di knowledge restano affidabili e poco dispersivi."
+      },
+      {
+        "title": "Cos'è il router MoE-RAG e perché domini invece di un solo agente?",
+        "html": "Non voglio dover reinizializzare una sessione per ogni task. Un context che cresce all'infinito può saturare l'agente: più costo, meno precisione e sessioni difficili da gestire. La risposta è una <strong>mixture-of-experts</strong>: un <strong>router leggero e sempre fresco</strong> (ogni chiamata è una nuova sessione, ma con un context di base persistente) che osserva stato e task, interroga la knowledge di altri esperti, li invoca, emette eventi e parla con l'utente. Non è una chat: è <strong>continuità basata sul context</strong>, scritto in background da altri agenti, filtrato e pronto da esplorare. Il router può scrivere direttive, creare nuovi sub-agent e domini e <strong>programmare la propria esecuzione nel tempo</strong>. I <strong>domini</strong> sono specializzazioni (database, knowledge, tools, siti) e un sub-agent ne usa uno o più. <em>L'entità è il binario, il modello è il vagone.</em>"
+      },
+      {
+        "title": "È legato a un provider o modello specifico?",
+        "html": "No, è un requisito architetturale: <strong>nessun vincolo con un singolo provider</strong>. Essendo un server MCP può funzionare con client MCP locali o di terze parti e, in base al runtime e all'integrazione, con modelli e provider differenti. Il livello dei tools resta indipendente dal modello sottostante. Grazie ai trigger <strong>WebSocket</strong>, il router acquista inoltre una <strong>dimensione temporale</strong>: può programmare eventi futuri auto-eseguibili, mettersi in pausa e, al risveglio, verificare lo stato di lavori, task e agenti."
+      }
+    ]
+  },
+  "footer": {
+    "leftHtml": "// SYSPhONY :: <a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener\">aggregatore MCP</a> · <a href=\"https://openrouter.ai\" target=\"_blank\" rel=\"noopener\">indipendente dal modello</a> · i tools alimentano tutto //",
+    "rightHtml": "EST. 2026 · <a href=\"https://www.apache.org/licenses/LICENSE-2.0\" target=\"_blank\" rel=\"noopener\">Apache 2.0</a>"
+  },
+  "pending": "tessuto tool-centrico · avvio della synapse mesh"
+}
